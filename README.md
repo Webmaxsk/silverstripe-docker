@@ -9,7 +9,7 @@ Stack built with:
 - PHP5, PHPUnit, Composer, Phing
 - SSPAK
 
-Copy image to Project root and run in this folder. It will create image with name "sslamp".
+Clone this repository to Project root and run command bellow. It will create image with name "sslamp".
 ```bash
 docker build -t sslamp .
 ```
