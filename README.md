@@ -1,5 +1,5 @@
 # silverstripe-docker-lamp
-Silverstripe lamp docker setup
+Silverstripe lamp docker setup based on https://github.com/4j5/silverstripe-lamp but without node/ruby part.
 
 ## Build image
 
