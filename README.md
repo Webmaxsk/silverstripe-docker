@@ -1,4 +1,4 @@
-# silverstripe-lamp
+# silverstripe-docker-lamp
 Silverstripe lamp docker setup
 
 ## Build image
