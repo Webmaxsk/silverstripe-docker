@@ -1,0 +1,27 @@
+#!/bin/bash  
+
+# Starup script for environment setup and apache start.
+# Author: Pali ondras@webmax.sk - based on Andy Smith MMK Digital
+
+export TERM=dumb
+echo "Starting MySQL..."
+/etc/init.d/mysql start
+sleep 5
+
+echo "Starting apache..."
+apache2ctl start
+
+# Setup db/assets for project.
+if [ -e /var/www/utils/remote.sspak.phar ]; then 
+	echo "SSPAK: loading remote.sspak.phar..."
+	sspak load /var/www/utils/remote.sspak.phar /var/www/public
+fi
+
+if [ -e /var/www/public/framework/cli-script.php ]; then 
+	echo "Running dev/build..."
+	php /var/www/public/framework/cli-script.php dev/build
+fi
+
+echo "Showing access.log..."
+tail -f /var/log/apache2/access.log
+

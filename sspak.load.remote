@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sspak load /var/www/utils/remote.sspak.phar /var/www/public

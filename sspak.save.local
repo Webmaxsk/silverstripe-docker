@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sspak save /var/www/public/ /var/www/utils/local.sspak.phar
+
