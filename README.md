@@ -7,6 +7,7 @@ Stack built with:
 - PHP5, PHPUnit, Composer, Phing
 - SSPAK
 
+
 ## Project structure
 
        Project root
@@ -18,12 +19,14 @@ Stack built with:
 
 Add /utils folder to project root with remote.sspak.phar file for auto generating db and assets.
 
+
 ## Run
 
 Run from "Project root" directory (port 3000, name "project") and visit http://localhost:3000 in browser
 ```bash
 docker run -dP -p 3000:80 -v $(pwd):/var/www --name project webmaxsk/silverstripe-docker
 ```
+
 
 If you have some big remote.sspak.phar, docker will create container, but is not ready yet. Check if is everything ready:
 ```bash
@@ -35,9 +38,28 @@ Manually load remote sspak
 docker exec -it project sspak.load.remote
 ```
 
+
 Manually save local sspak (will be stored in utils folder as local.sspak.phar)
 ```bash
 docker exec -it project sspak.save.local
+```
+
+
+SS dev/build
+```bash
+docker exec -it project dev.build
+```
+
+
+Composer installation
+```bash
+docker exec -it project composer.install
+```
+
+
+Login to container and execute custom script
+```bash
+docker exec -it project bash
 ```
 
 ## Create custom version
@@ -47,6 +69,8 @@ Clone this repository to "Project root", customize and run command bellow. It wi
 docker build -t sslamp .
 ```
 
+
 ## Repos
-Docker: https://hub.docker.com/r/webmaxsk/silverstripe-docker/
-Github: https://github.com/Webmaxsk/silverstripe-docker/
+
+- Docker: https://hub.docker.com/r/webmaxsk/silverstripe-docker/
+- Github: https://github.com/Webmaxsk/silverstripe-docker/

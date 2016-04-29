@@ -1,3 +1,6 @@
 #!/bin/bash
 
 sspak load /var/www/utils/remote.sspak.phar /var/www/public
+mv /var/www/utils/remote.sspak.phar /var/www/utils/_used_remote.sspak.phar
+chown www-data:www-data -R /var/www/public/assets 
+chmod 775 -R /var/www/public/assets 
