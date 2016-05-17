@@ -29,6 +29,22 @@ then
 	dev.build
 fi
 
+if [ ! -d /var/www/public/assets ]; 
+then 
+	echo "Setup assets dir..."
+	mkdir /var/www/public/assets
+	chown www-data:www-data -R /var/www/public/assets 
+	chmod 775 -R /var/www/public/assets
+fi
+
+if [ ! -e /var/www/public/assets/.htaccess ]; 
+then 
+	echo "Setup assets/.htaccess..."
+	wget -O /var/www/public/assets/.htaccess https://raw.githubusercontent.com/silverstripe/silverstripe-installer/master/assets/.htaccess
+	chown www-data:www-data /var/www/public/assets/.htaccess 
+	chmod 775 -R /var/www/public/assets/.htaccess
+fi
+
 echo "Showing access.log..."
 tail -f /var/log/apache2/access.log
 
