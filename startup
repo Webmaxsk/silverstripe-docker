@@ -11,12 +11,6 @@ sleep 5
 echo "Starting apache..."
 apache2ctl start
 
-if [ -e /var/www/utils/remote.sspak.phar ]; 
-then 
-	echo "SSPAK: loading remote.sspak.phar..."
-	sspak.load.remote
-fi
-
 if [ -e /var/www/public/composer.json ]; 
 then 
 	echo "Running composer install..."
@@ -27,6 +21,12 @@ if [ -e /var/www/public/framework/cli-script.php ];
 then 
 	echo "Running dev/build..."
 	dev.build
+fi
+
+if [ -e /var/www/utils/remote.sspak.phar ]; 
+then 
+	echo "SSPAK: loading remote.sspak.phar..."
+	sspak.load.remote
 fi
 
 if [ ! -d /var/www/public/assets ]; 
