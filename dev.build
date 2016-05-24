@@ -1,7 +1,4 @@
 #!/bin/bash
 
-# remove cached manifests - both cli/http versions
-rm -R /tmp/silverstripe-cache-*
-
 # run dev/build
 php /var/www/public/framework/cli-script.php dev/build
