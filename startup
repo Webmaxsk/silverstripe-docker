@@ -46,6 +46,7 @@ then
 	chmod 775 -R /var/www/public/assets/.htaccess
 fi
 
-echo "Showing access.log..."
-tail -f /var/log/apache2/access.log
+echo "ALL DONE"
+
+#tail -f /var/log/apache2/access.log
 
