@@ -22,44 +22,39 @@ Add /utils folder to project root with remote.sspak.phar file for auto generatin
 
 ## Run
 
-Run from "Project root" directory (port 3000, name "project") and visit http://localhost:3000 in browser
+Run from "Project root" directory (port 3000, name "PROJECT") and visit http://localhost:3000 in browser
 ```bash
-docker run -dP -p 3000:80 -v $(pwd):/var/www --name project webmaxsk/silverstripe-docker
+docker run -dP -p 3000:80 -v $(pwd):/var/www --name PROJECT webmaxsk/silverstripe-docker
 ```
 
 
 If you have some big remote.sspak.phar, docker will create container, but is not ready yet. Check if is everything ready:
 ```bash
-docker logs project
+docker logs PROJECT
 ```
 
-Manually load remote sspak
+Manually load remote sspak (remote.sspak.phar)
 ```bash
-docker exec -it project sspak.load.remote
+docker exec -it PROJECT mysspak load remote
 ```
 
 
 Manually save local sspak (will be stored in utils folder as local.sspak.phar)
 ```bash
-docker exec -it project sspak.save.local
+docker exec -it PROJECT mysspak save local
 ```
 
 
-SS dev/build
-```bash
-docker exec -it project dev.build
-```
 
-
-Composer installation
+Composer usage
 ```bash
-docker exec -it project composer.install
+docker exec -it PROJECT mycomposer parameter
 ```
 
 
 Login to container and execute custom script
 ```bash
-docker exec -it project bash
+docker exec -it PROJECT bash
 ```
 
 ## Create custom version

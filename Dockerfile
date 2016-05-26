@@ -51,10 +51,8 @@ RUN a2enmod rewrite && \
 RUN echo "date.timezone = Europe/Bratislava" >> /etc/php5/apache2/php.ini
 
 ADD startup /usr/local/bin/startup
-ADD sspak.load.remote /usr/local/bin/sspak.load.remote
-ADD sspak.save.local /usr/local/bin/sspak.save.local
-ADD composer.install /usr/local/bin/composer.install
-ADD dev.build /usr/local/bin/dev.build
+ADD mysspak /usr/local/bin/mysspak
+ADD mycomposer /usr/local/bin/mycomposer
 ADD apache-default-vhost /etc/apache2/sites-available/000-default.conf
 ADD _ss_environment.php /var/_ss_environment.php
 

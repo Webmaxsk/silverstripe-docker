@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ "$1" != "" ]; then
+  if [ "$2" != "" ]; then
+    if [ "$1" == "load" ]; then
+        sspak load /var/www/utils/$2.sspak.phar /var/www/public
+	mv /var/www/utils/$2.sspak.phar /var/www/utils/_used_$2.sspak.phar
+	chown www-data:www-data -R /var/www/public/assets 
+	chmod 775 -R /var/www/public/assets 
+    else
+	if [ "$1" == "save" ]; then
+        	sspak save /var/www/public/ /var/www/utils/$2.sspak.phar
+	else 
+		echo "no valid action defined, use load or save"
+    	fi	  
+    fi	
+  else
+    echo "Specify sspak name prefix"
+  fi	    
+else
+    echo "Specify action parameter (load or save)"
+fi
+
+
+

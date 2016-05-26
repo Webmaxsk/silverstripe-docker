@@ -14,20 +14,13 @@ apache2ctl start
 if [ -e /var/www/public/composer.json ]; 
 then 
 	echo "Running composer install..."
-	composer.install
+	mycomposer install
 fi
-
-# this breaks things if dev/build is running via http and cli
-#if [ -e /var/www/public/framework/cli-script.php ]; 
-#then 
-#	echo "Running dev/build..."
-#	dev.build
-#fi
 
 if [ -e /var/www/utils/remote.sspak.phar ]; 
 then 
 	echo "SSPAK: loading remote.sspak.phar..."
-	sspak.load.remote
+	mysspak load remote
 fi
 
 if [ ! -d /var/www/public/assets ]; 
@@ -48,5 +41,6 @@ fi
 
 echo "ALL DONE"
 
-#tail -f /var/log/apache2/access.log
+# do not exit container after startup
+while true; do sleep 1000; done
 
